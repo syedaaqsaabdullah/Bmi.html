@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background-color: #eee6f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            width: 350px;
+            background-color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #aaa;
+        }
+
+        h1 {
+            color: purple;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>BMI Calculator</h1>
+
+    <input type="number" id="weight" placeholder="Weight (kg)">
+
+    <input type="number" id="height" placeholder="Height (m)">
+
+    <br>
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+function calculateBMI() {
+
+    let weight = document.getElementById("weight").value;
+    let height = document.getElementById("height").value;
+
+    if (weight == "" || height == "" || height <= 0) {
+        document.getElementById("result").innerHTML =
+            "Please enter valid values.";
+        return;
+    }
+
+    let bmi = weight / (height * height);
+
+    document.getElementById("result").innerHTML =
+        "Your BMI is: " + bmi.toFixed(2);
+}
+</script>
+
+</body>
+</html>
